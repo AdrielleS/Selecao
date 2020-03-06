@@ -51,8 +51,8 @@
 	   				<div class="form-group">
 					    <label for="produto">
 					    Produto: </label>
-					    <select  id="produto" onChange = prox('produto','marca')>
-					    	<option></option>
+					    <select  id="produto" onChange = prox('produto','marca'),grafico()>
+
 						    
 					    </select>
 			  		</div>
@@ -61,8 +61,7 @@
 	   			<div class="col-4">
 	   				<div class="form-group">
 					    <label for="marca">Marca: </label>
-					    <select  id="marca" onChange = valorPorMarcas() onChange = graf() >
-					    	<option></option>
+					    <select  id="marca" onChange = valorPorMarcas(),grafico() >
 					    </select>
 			  		</div>
 	   			</div>		
@@ -70,8 +69,11 @@
 	      
    		</div>	
 
-
-   		<canvas id="barChart"></canvas>
+   		<div class="container" style= "height: 300px">
+   			<canvas id="barChart"></canvas>
+   			
+   		</div>
+   		
 
 
    		
