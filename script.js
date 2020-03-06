@@ -1,5 +1,5 @@
 
-//funcao responsavel por adicionar/atualizar os valores dos selects produtos e marcas
+//função responsável por adicionar/atualizar os valores dos select produtos e marcas
 // c - id do select selecionado
 // p - id do select a ser modificado
 function prox(c,p){
@@ -16,20 +16,20 @@ function prox(c,p){
 	var i = qualSelecionado(c);
 
 	// remove o que estiver dentro do select, evitando que ao mudar uma das opções de roupa para sapato (por exemplo)
-	// as informações que estavam no select produto e marca correspondentes a categoria roupa não
+	// as informações que estavam no select produto e marca, correspondentes a categoria roupa, não
 	// permaneçam como opções quando o selecionado for sapato.
 	
 	remover(p);
 
-	//verificação responsável pela inclusão dos valores no select de produto e/ou marca
-	// 1 - select categoria foi selecionado - valores de produtos deveram ser adicionados
+	//verificação responsável pela inclusão dos valores como opção no select de produto e/ou marca
+	// 1 - select categoria foi selecionado - opções de produtos deverão ser adicionadas
 	if (i ==1) {
 		
 		if (option.text === "Sapato") {
 
 			//se sapato foi selecionado produto recebe bota e sapatilha como opção
 			//isso acontece com os outros
-			//chama o metodo para adicionar a opção informando o (id do select, o value, o text, index)
+			//chama a função para adicionar a opção informando o (id do select, o value, o text, index)
 			addOption(p,'s1','Bota',0);
 			addOption(p,'s2','Sapatilha',1);
 			
@@ -38,10 +38,10 @@ function prox(c,p){
 			addOption(p,'r1','Camisa',1);
 
 		}
-		// chama a propria função para da sequencia a adição de valores (nesse caso no select de marca)
+		// chama a própria função para da sequência a adição de valores (nesse caso no select de marca)
 		prox(p,'marca')
 
-
+		// 2 - select produto selecionado - opções de marcas deverão ser adicionadas
 	}else if (i ==2) {
 		
 		if (option.text === "Bota") {
@@ -72,7 +72,7 @@ function prox(c,p){
 } 
 
 
-// responsavel por atribuir os valores correspondentes as vendas feitas a partir de determinada marca
+// responsável por atribuir os valores correspondentes as vendas feitas a partir de determinada marca
 // (Que corresponde a uma categoria e produto especifico)
 // ex:  Sapato Bota Moleca
 function valorPorMarcas(){
@@ -83,14 +83,14 @@ function valorPorMarcas(){
 	var option = {};
 
 	//verifica se houve uma seleção de opção no select, caso sim, ele recebe o objeto selecionado
-	//caso não, ele recebe na "propriedade" text o valor correspondente ao primeira opção de marca do sistema
+	//caso não, ele recebe na "propriedade" text o valor correspondente a primeira opção de marca do sistema
 	if(m.options[m.selectedIndex]){
 		option = m.options[m.selectedIndex];
 	}else {
 		option.text = 'Amaro1';
 	}
 
-	//verificação de qual marca a opção se refere retornando um array com valores correspondente as vendas realizadas
+	//verificação de qual marca a opção se refere retornando um array com valores correspondentes as vendas realizadas
 	if (option.text === 'Moleca') {
 		return [300,50,100,200]
 	}else if(option.text === 'Moleca2'){
@@ -131,12 +131,12 @@ function qualSelecionado(c){
 function remover(p){
 	var aux = document.getElementById(p);
 	while(aux.length) {
-    	aux.remove(0); // indice zero para poder ser capaz de apagar todas opções do select em questao
+    	aux.remove(0); // indice zero para poder ser capaz de apagar todas opções do select em questão
 	}
 }
 
 //Adiciona opções no select
-//recebe o (nome do id do select, value,text,index)
+//recebe o (id do select, value,text,index)
 function addOption(p,valor,texto,n){
 
 	//pega o elemento com o id p
@@ -159,8 +159,9 @@ function grafico(){
 	//pega o valor gerado pela verificação da função para ser usado no data
 	var cp = valorPorMarcas();
 
-
+	//pega o elemento
 	var ctxB = document.getElementById("barChart").getContext('2d');
+	//criação do gráfico
 	var myBarChart = new Chart(ctxB, {
 		type: 'bar',
 		data: {
@@ -207,7 +208,7 @@ function grafico(){
 		}
 	});
 
-	return myBarChart;
+	
 }
 
 
