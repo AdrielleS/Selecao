@@ -11,7 +11,7 @@
 
     	<link href="estilo.css" rel="stylesheet">
 	</head>
-	<body>
+	<body onLoad = prox('categoria','produto'),grafico()>
 
 		<nav class=" cor navbar navbar-expand-lg navbar-dark ">
 		  <a class="navbar-brand" href="#">Menu</a>
@@ -38,8 +38,7 @@
 	   				<div class="form-group">
 					    <label for="categoria">Categoria: </label>
 					    
-					    <select  id="categoria" onChange = prox('categoria','produto') >
-					    	<option></option>
+					    <select  id="categoria" onChange = prox('categoria','produto'),grafico() >
 					      	<option value="roupa">Roupa </option>
 					     	<option value="sapato">Sapato </option>
 					      	
